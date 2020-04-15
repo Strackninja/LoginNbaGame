@@ -47,30 +47,30 @@ namespace Login_Nba_game
             Console.Clear();
             Console.WriteLine("Please enter your username");
             //userlogin blir det användaren skriver in, ifall det inte stämmer överens med vad som finns i listan kommer användaren tvingas skriva om 
-            username.userlogin = Console.ReadLine();
-            while (username.Username.Contains(username.userlogin) == false)
+            username.userLogin = Console.ReadLine();
+            while (username.Username.Contains(username.userLogin) == false)
             {
                 Console.WriteLine("Wrong Username");
-                username.userlogin = Console.ReadLine();
+                username.userLogin = Console.ReadLine();
                 Console.Clear();
             }
             Console.Clear();
             //passlogin blir det användaren skriver in, ifall det inte stämmer överens med vad som finns i listan kommer användaren tvingas skriva om 
             Console.WriteLine("Please enter your password");
-            password.passlogin = Console.ReadLine();
-            while (password.Password.Contains(password.passlogin) == false)
+            password.passLogin = Console.ReadLine();
+            while (password.Password.Contains(password.passLogin) == false)
             {
                 Console.WriteLine("Wrong Password");
-                password.passlogin = Console.ReadLine();
+                password.passLogin = Console.ReadLine();
                 Console.Clear();
             }
             Console.Clear();
             Console.WriteLine("Do you want to start the game?");
             //använder sig av metoden YesNo vilket tvingar användaren att bara skriva in yes eller no
             //ifall spelaren väljer no kommer spelet stängas av
-            string playgame = YesNo();
+            string playGame = YesNo();
 
-            while (playgame == "yes")
+            while (playGame == "yes")
             {
                 Console.Clear();
                 //Spelarens spelare
@@ -110,19 +110,19 @@ namespace Login_Nba_game
                 Console.WriteLine("Now its time for you to choose a player");
                 Console.WriteLine("Please enter a number between 1-3 to choose a player!");
                 //Answers ser till att spelaren bara kan välja siffror och bara välja mellan 1-3. 
-                int pointanswer = Answers();
+                int pointAnswer = Answers();
 
                 //Det första valet spelaren gör, spelaren väljer 1 pointguard utav 3 genom att skriva en siffra mellan 1-3
-                if (pointanswer == 1)
+                if (pointAnswer == 1)
                 {
                     pg = new Kyrie();
                 }
-                else if (pointanswer == 2)
+                else if (pointAnswer == 2)
 
                 {
                     pg = new Russel();
                 }
-                else if (pointanswer == 3)
+                else if (pointAnswer == 3)
                 {
                     pg = new Damian();
                 }
@@ -149,17 +149,17 @@ namespace Login_Nba_game
                 Console.WriteLine("Now its time for you to choose a player");
                 Thread.Sleep(600);
                 Console.WriteLine("Please enter a number between 1-3 to choose a player!");
-                int shootinganswer = Answers();
+                int shootingAnswer = Answers();
                 //Samma sak som för pointguard men för shootingguard
-                if (shootinganswer == 1)
+                if (shootingAnswer == 1)
                 {
                     sg = new James();
                 }
-                else if (shootinganswer == 2)
+                else if (shootingAnswer == 2)
                 {
                     sg = new Donovan();
                 }
-                else if (shootinganswer == 3)
+                else if (shootingAnswer == 3)
                 {
                     sg = new Devin();
                 }
@@ -186,17 +186,17 @@ namespace Login_Nba_game
                 Console.WriteLine("Now its time for you to choose a player");
                 Thread.Sleep(600);
                 Console.WriteLine("Please enter a number between 1-3 to choose a player!");
-                int smallanswer = Answers();
+                int smallAnswer = Answers();
                 //samma sak som för pointguard men för SmallForward
-                if (smallanswer == 1)
+                if (smallAnswer == 1)
                 {
                     sf = new Lebron();
                 }
-                else if (smallanswer == 2)
+                else if (smallAnswer == 2)
                 {
                     sf = new Kawhi();
                 }
-                else if (smallanswer == 3)
+                else if (smallAnswer == 3)
                 {
                     sf = new Luka();
                 }
@@ -306,7 +306,7 @@ namespace Login_Nba_game
                 Thread.Sleep(600);
                 Console.WriteLine("Do you want to play again?");
                 //Kollar om du vill spela igen eller inte
-                playgame = YesNo();
+                playGame = YesNo();
             }
         }
 
@@ -334,29 +334,29 @@ namespace Login_Nba_game
         // Ifall spelaren väljer en siffra som inte är mellan 1-3 kommer spelet att fråga om ett svar igen
         static int Answers()
         {
-            int playerchoice = 0;//Det värde som kommer att användas i val av spelare
-            string playeranswer = Console.ReadLine();//Spelarens input
-            int.TryParse(playeranswer, out playerchoice);//Konverterar spelarens string input till en int
-            bool correct = int.TryParse(playeranswer, out playerchoice);//Ser till att konverteringen blev korrekt
+            int playerChoice = 0;//Det värde som kommer att användas i val av spelare
+            string playerAnswer = Console.ReadLine();//Spelarens input
+            int.TryParse(playerAnswer, out playerChoice);//Konverterar spelarens string input till en int
+            bool correct = int.TryParse(playerAnswer, out playerChoice);//Ser till att konverteringen blev korrekt
 
-            while (correct == false || playerchoice != 1 && playerchoice != 2 && playerchoice != 3)
+            while (correct == false || playerChoice != 1 && playerChoice != 2 && playerChoice != 3)
             {
                 Console.WriteLine("Please enter a number between 1-3");
 
-                playerchoice = 0;
-                playeranswer = Console.ReadLine();
-                correct = int.TryParse(playeranswer, out playerchoice);
+                playerChoice = 0;
+                playerAnswer = Console.ReadLine();
+                correct = int.TryParse(playerAnswer, out playerChoice);
             }
 
-            if (playerchoice == 1)//Ifall spelaren klickar 1 kommer spelet returnera värdet 1 och välja den första spelaren
+            if (playerChoice == 1)//Ifall spelaren klickar 1 kommer spelet returnera värdet 1 och välja den första spelaren
             {
                 return 1;
             }
-            else if (playerchoice == 2)// Samma sak fast för 2
+            else if (playerChoice == 2)// Samma sak fast för 2
             {
                 return 2;
             }
-            else if (playerchoice == 3)//Samma sak fast för 3
+            else if (playerChoice == 3)//Samma sak fast för 3
             {
                 return 3;
             }
