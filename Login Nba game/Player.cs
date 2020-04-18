@@ -9,12 +9,13 @@ namespace Login_Nba_game
     public class Player
     {
         //De olika värdena alla spelare kommer ha
-        public int outsidescoring;
-        public int insidescoring;
-        public int athleticism;
-        public int playmaking;
-        public int defending;
-        public int rebounding;
+        //protected istället för 
+        protected int outsidescoring;
+        protected int insidescoring;
+        protected int athleticism;
+        protected int playmaking;
+        protected int defending;
+        protected int rebounding;
         public string name;
 
         public void Getstats()//En metod som printar ut spelarens stats 

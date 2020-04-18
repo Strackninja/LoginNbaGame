@@ -12,7 +12,7 @@ namespace Login_Nba_game
         public List<string> Username = new List<string>();
         public List<string> Password = new List<string>();
         //string för det användaren skriver in
-        public string userlogin;
-        public string passlogin;
+        public string userLogin;
+        public string passLogin;
     }
 }
